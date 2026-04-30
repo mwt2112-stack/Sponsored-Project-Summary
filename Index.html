@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -116,104 +115,103 @@
   @keyframes hint-pulse { 0% { box-shadow: 0 0 0 0 rgba(0,48,135,0.5); } 70% { box-shadow: 0 0 0 6px rgba(0,48,135,0); } 100% { box-shadow: 0 0 0 0 rgba(0,48,135,0); } }
   .first-hint { animation: hint-pulse 1.4s ease 0.9s 2; border-radius: 2px; }
 
-/* ── PILL BAR — sits inside the sticky thead row ── */
-.pill-bar {
-display: flex;
-align-items: center;
-gap: 7px;
-padding: 4px 0 3px;
-white-space: nowrap;
-}
-.pill-label {
-font-size: 8.5px;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 0.08em;
-color: #888;
-margin-right: 1px;
-}
-.pill {
-display: inline-flex;
-align-items: center;
-gap: 5px;
-padding: 3px 11px 3px 8px;
-border-radius: 100px;
-border: 1.5px solid #bbb;
-background: #fff;
-font-size: 9.5px;
-font-weight: bold;
-cursor: pointer;
-transition: all 0.15s ease;
-user-select: none;
-color: #444;
-letter-spacing: 0.01em;
-}
-.pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.pill:hover { border-color: #555; color: #111; }
+  /* ── PILL BAR — sits inside the sticky thead row ── */
+  .pill-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 0 3px;
+    white-space: nowrap;
+  }
+  .pill-label {
+    font-size: 8.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-right: 1px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 11px 3px 8px;
+    border-radius: 100px;
+    border: 1.5px solid #bbb;
+    background: #fff;
+    font-size: 9.5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    color: #444;
+    letter-spacing: 0.01em;
+  }
+  .pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .pill:hover { border-color: #555; color: #111; }
 
-/* Budget pill — teal */
-.pill[data-pill=“budget”] .pill-dot { background: #0e7490; }
-.pill[data-pill=“budget”].pill-on   { background: #d0f0f8; border-color: #0e7490; color: #0a5c6e; }
+  /* Budget pill — teal */
+  .pill[data-pill="budget"] .pill-dot { background: #0e7490; }
+  .pill[data-pill="budget"].pill-on   { background: #d0f0f8; border-color: #0e7490; color: #0a5c6e; }
 
-/* Spent pill — amber */
-.pill[data-pill=“spent”] .pill-dot  { background: #c97b00; }
-.pill[data-pill=“spent”].pill-on    { background: #fff3d6; border-color: #8a4b00; color: #8a4b00; }
+  /* Spent pill — amber */
+  .pill[data-pill="spent"] .pill-dot  { background: #c97b00; }
+  .pill[data-pill="spent"].pill-on    { background: #fff3d6; border-color: #8a4b00; color: #8a4b00; }
 
-/* Left pill — green */
-.pill[data-pill=“left”] .pill-dot   { background: #2a8a2a; }
-.pill[data-pill=“left”].pill-on     { background: #dff5df; border-color: #1a5c1a; color: #1a5c1a; }
+  /* Left pill — green */
+  .pill[data-pill="left"] .pill-dot   { background: #2a8a2a; }
+  .pill[data-pill="left"].pill-on     { background: #dff5df; border-color: #1a5c1a; color: #1a5c1a; }
 
-/* ── S4-STYLE HIGHLIGHT ENGINE ── */
-@keyframes hlShimmer { 0%{background-position:-200% center,0 0} 100%{background-position:300% center,0 0} }
-@keyframes hlBeat    { 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.28)} }
-@keyframes hlIn      { from{opacity:0;transform:translateX(4px)} to{opacity:1;transform:translateX(0)} }
-@keyframes glowBreathe { 0%,100%{opacity:.45} 50%{opacity:1} }
+  /* ── S4-STYLE HIGHLIGHT ENGINE ── */
+  @keyframes hlShimmer { 0%{background-position:-200% center,0 0} 100%{background-position:300% center,0 0} }
+  @keyframes hlBeat    { 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.28)} }
+  @keyframes hlIn      { from{opacity:0;transform:translateX(4px)} to{opacity:1;transform:translateX(0)} }
+  @keyframes glowBreathe { 0%,100%{opacity:.45} 50%{opacity:1} }
 
-/* highlighted header */
-th.hl-hdr {
-position:relative !important; overflow:hidden !important;
-background-image:
-linear-gradient(105deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 80%),
-linear-gradient(var(–hl-fill),var(–hl-fill)) !important;
-background-size:200% 100%,100% 100% !important;
-background-position:-200% center,0 0 !important;
-animation:hlShimmer 2.6s ease-in-out infinite !important;
-border-left:1.5px solid var(–hl-line) !important;
-border-right:1.5px solid var(–hl-line) !important;
-border-top:2px solid var(–hl-line) !important;
-border-bottom:3px solid var(–hl-strong) !important;
-color:var(–hl-text) !important;
-}
-/* highlighted data cell */
-td.hl-cell {
-background:var(–hl-cell) !important;
-border-left:1px solid var(–hl-soft) !important;
-border-right:1px solid var(–hl-soft) !important;
-color:var(–hl-text) !important;
-font-weight:700 !important;
-animation:hlBeat 2.8s ease-in-out infinite,hlIn .35s ease both !important;
-}
-td.hl-cell.neg, td.hl-cell.rneg { color:#111 !important; background:rgba(200,55,58,.07) !important; }
+  /* highlighted header */
+  th.hl-hdr {
+    position:relative !important; overflow:hidden !important;
+    background-image:
+      linear-gradient(105deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 80%),
+      linear-gradient(var(--hl-fill),var(--hl-fill)) !important;
+    background-size:200% 100%,100% 100% !important;
+    background-position:-200% center,0 0 !important;
+    animation:hlShimmer 2.6s ease-in-out infinite !important;
+    border-left:1.5px solid var(--hl-line) !important;
+    border-right:1.5px solid var(--hl-line) !important;
+    border-top:2px solid var(--hl-line) !important;
+    border-bottom:3px solid var(--hl-strong) !important;
+    color:var(--hl-text) !important;
+  }
+  /* highlighted data cell */
+  td.hl-cell {
+    background:var(--hl-cell) !important;
+    border-left:1px solid var(--hl-soft) !important;
+    border-right:1px solid var(--hl-soft) !important;
+    color:var(--hl-text) !important;
+    font-weight:700 !important;
+    animation:hlBeat 2.8s ease-in-out infinite,hlIn .35s ease both !important;
+  }
+  td.hl-cell.neg, td.hl-cell.rneg { color:#111 !important; background:rgba(200,55,58,.07) !important; }
 
-/* glow overlay strip — positioned by JS */
-.hl-glow-strip {
-position:absolute; pointer-events:none; z-index:3; top:0;
-background:radial-gradient(ellipse 90% 55% at 50% 50%,
-var(–hl-radial-center) 0%, var(–hl-radial-mid) 55%, transparent 100%);
-animation:glowBreathe 2.8s ease-in-out infinite;
-}
-.hl-glow-strip::before,.hl-glow-strip::after {
-content:’’; position:absolute; top:0; bottom:0; width:2px;
-background:linear-gradient(180deg,transparent 0%,var(–hl-edge) 8%,var(–hl-edge) 92%,transparent 100%);
-animation:glowBreathe 2.8s ease-in-out infinite;
-}
-.hl-glow-strip::before { left:0; }
-.hl-glow-strip::after  { right:0; }
+  /* glow overlay strip — positioned by JS */
+  .hl-glow-strip {
+    position:absolute; pointer-events:none; z-index:3; top:0;
+    background:radial-gradient(ellipse 90% 55% at 50% 50%,
+      var(--hl-radial-center) 0%, var(--hl-radial-mid) 55%, transparent 100%);
+    animation:glowBreathe 2.8s ease-in-out infinite;
+  }
+  .hl-glow-strip::before,.hl-glow-strip::after {
+    content:''; position:absolute; top:0; bottom:0; width:2px;
+    background:linear-gradient(180deg,transparent 0%,var(--hl-edge) 8%,var(--hl-edge) 92%,transparent 100%);
+    animation:glowBreathe 2.8s ease-in-out infinite;
+  }
+  .hl-glow-strip::before { left:0; }
+  .hl-glow-strip::after  { right:0; }
 
-/* table-wrapper needs relative so strips can be positioned inside it */
-.table-wrapper { position:relative; }
+  /* table-wrapper needs relative so strips can be positioned inside it */
+  .table-wrapper { position:relative; }
 </style>
-
 </head>
 <body>
 <div id="report-panel">
@@ -266,6 +264,7 @@ animation:glowBreathe 2.8s ease-in-out infinite;
         <div class="meta-row"><span class="meta-label">Award Period:</span><span class="clickable" tabindex="0" data-key="award_period">&nbsp;09/01/2021 - 08/31/2028</span></div>
       </div>
     </div>
+
 
   </div>
 
@@ -608,6 +607,5 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeP
 document.getElementById('table-scroll-area').addEventListener('scroll', function(){ document.getElementById('report-thead').classList.toggle('scrolled-past', this.scrollTop > 0); });
 buildTabList();
 </script>
-
 </body>
 </html>
